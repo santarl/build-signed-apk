@@ -50,6 +50,7 @@ runs:
       with:
         distribution: ${{ inputs.java_distribution }}
         java-version: ${{ inputs.java_version }}
+        cache: "gradle"
       
     - shell: bash
       run: echo "${{ inputs.keystore_b64 }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
