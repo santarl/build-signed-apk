@@ -2,8 +2,6 @@
 
 Build a signed APK of your Android application
 
-**WARNING:** This uses `apt-get` to install Java, as I didn't find better ways to install it, and, consequently, will work ONLY on Ubuntu
-
 ## Inputs
 
 The following inputs are all required
@@ -21,7 +19,7 @@ If both `keystore_b64` and `keystore_file` are defined, only `keystore_b64` will
 
 ```yaml
 - name: Build Signed APK
-  uses: victorbnl/build-signed-apk@main
+  uses: TeamNecta/build-signed-apk@main
   with:
     keystore_b64: ${{ secrets.keystore }}
     keystore_password: ${{ secrets.keystore_password }}
