@@ -35,12 +35,6 @@ inputs:
 runs:
   using: "composite"
   steps:
-  
-    - run: sudo apt-get -y update
-      shell: bash
-
-    - run: sudo apt-get -y install openjdk-11-jdk
-      shell: bash
       
     - shell: bash
       run: echo "${{ inputs.keystore_b64 }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
