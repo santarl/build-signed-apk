@@ -1,4 +1,4 @@
-name: "Build Signed APK"
+name: "Signed APK Builder"
 description: "Build a signed APK of your Android application"
 
 branding:
