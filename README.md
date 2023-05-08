@@ -4,14 +4,15 @@ Build a signed APK of your Android application
 
 ## Inputs
 
-The following inputs are all required
-
-- `keystore_b64` (optional, in alternative to `keystore_file`): the _contents of_ the keystore file (.jks), encoded as base64. (_I highly recommend you to generate this with the linux `base64` command, it did not work for me using websites to convert it._)
-- `keystore_file` (optional, in alternative to `keystore`): the path to the keystore file (.jks). There's no need to encode it as base64.
-- `keystore_password`: the password of the file
-- `key_alias`: the alias of the key
-- `key_password`: the password of the key
-- `gradlew_dir`: directory of the gradlew file
+| Name | Description | Required | Default |
+| --- | --- | --- | --- |
+| keystore_b64 or keystore_file | Base64 encoded keystore or path to the keystore file | true | |
+| keystore_password | Password of the keystore | true | |
+| key_alias | Alias of the key | true |  |
+| key_password | Password of the key | true | |
+| java_version | Java version to use | false | 17 |
+| java_distribution | Java distribution to use | false | zulu |
+| gradlew_dir | Directory where the gradlew file is located | false | . |
 
 If both `keystore_b64` and `keystore_file` are defined, only `keystore_b64` will be used. At least one of them must be defined.
 

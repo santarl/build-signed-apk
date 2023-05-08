@@ -7,6 +7,16 @@ branding:
 
 inputs:
 
+  java_version:
+    description: "The JDK version to use"
+    required: false
+    default: "17"
+
+  java_distribution:
+    description: "The JDK distribution to use"
+    required: false
+    default: "zulu"
+
   keystore_b64:
     description: "The contents of the keystore file, encoded as base64"
     required: false
@@ -38,8 +48,8 @@ runs:
     - name: setup jdk
       uses: actions/setup-java@v3
       with:
-        distribution: 'zulu'
-        java-version: 17
+        distribution: ${{ inputs.java_distribution }}
+        java-version: ${{ inputs.java_version }}
       
     - shell: bash
       run: echo "${{ inputs.keystore_b64 }}" | base64 -d > $GITHUB_WORKSPACE/signing-key.jks
