@@ -15,7 +15,7 @@ inputs:
   java_distribution:
     description: "The JDK distribution to use"
     required: false
-    default: "zulu"
+    default: "temurin"
 
   keystore_b64:
     description: "The contents of the keystore file, encoded as base64"
@@ -65,6 +65,7 @@ runs:
       working-directory: ${{ inputs.gradlew_dir }}
       run: |
         chmod +x ./gradlew
+        ./gradlew updateLintBaseline
         ./gradlew build
         ./gradlew assembleRelease \
           -Pandroid.injected.signing.store.file=$GITHUB_WORKSPACE/signing-key.jks \
